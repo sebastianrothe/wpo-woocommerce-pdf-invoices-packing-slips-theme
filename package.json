@@ -2,10 +2,12 @@
   "name": "invoice-ticket",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "author": "Sebastian Rothe",
+  "license": "ISC",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx browser-sync start --server --watch"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "heml": "^1.1.3"
+  }
 }
