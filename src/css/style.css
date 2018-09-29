@@ -1,0 +1,18 @@
+.paper--a4 {
+    max-width: 21cm;
+    max-height: 29cm;
+}
+
+.ticket {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.ticket--card {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
+    margin-right: 0.5rem;
+}

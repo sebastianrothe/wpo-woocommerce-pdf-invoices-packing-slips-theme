@@ -1,462 +1,467 @@
 <!DOCTYPE html>
-<!-- saved from url=(0145)https://gruseltour-berlin.de/wordpress/wp-admin/admin-ajax.php?action=generate_wpo_wcpdf&document_type=invoice&order_ids=2062&_wpnonce=88afd9cf31 -->
 <html>
 
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-	<title>Rechnung</title>
-	<style type="text/css">
-		/* Main Body */
-		@page {
-			margin-top: 1cm;
-			margin-bottom: 3cm;
-			margin-left: 2cm;
-			margin-right: 2cm;
-		}
+    <title>Rechnung</title>
+    <style type="text/css">
+        /* Main Body */
+        @page {
+            margin-top: 1cm;
+            margin-bottom: 3cm;
+            margin-left: 2cm;
+            margin-right: 2cm;
+        }
 
-		body {
-			background: #fff;
-			color: #000;
-			margin: 0cm;
-			font-family: 'Open Sans', sans-serif;
-			/* want to use custom fonts? http://docs.wpovernight.com/woocommerce-pdf-invoices-packing-slips/using-custom-fonts/ */
-			font-size: 9pt;
-			line-height: 100%;
-			/* fixes inherit dompdf bug */
-		}
+        body {
+            background: #fff;
+            color: #000;
+            margin: 0cm;
+            font-family: 'Open Sans', sans-serif;
+            /* want to use custom fonts? http://docs.wpovernight.com/woocommerce-pdf-invoices-packing-slips/using-custom-fonts/ */
+            font-size: 9pt;
+            line-height: 100%;
+            /* fixes inherit dompdf bug */
+        }
 
-		h1,
-		h2,
-		h3,
-		h4 {
-			font-weight: bold;
-			margin: 0;
-		}
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: bold;
+            margin: 0;
+        }
 
-		h1 {
-			font-size: 16pt;
-			margin: 5mm 0;
-		}
+        h1 {
+            font-size: 16pt;
+            margin: 5mm 0;
+        }
 
-		h2 {
-			font-size: 14pt;
-		}
+        h2 {
+            font-size: 14pt;
+        }
 
-		h3,
-		h4 {
-			font-size: 9pt;
-		}
-
-
-		ol,
-		ul {
-			list-style: none;
-			margin: 0;
-			padding: 0;
-		}
-
-		li,
-		ul {
-			margin-bottom: 0.75em;
-		}
-
-		p {
-			margin: 0;
-			padding: 0;
-		}
-
-		p+p {
-			margin-top: 1.25em;
-		}
-
-		a {
-			border-bottom: 1px solid;
-			text-decoration: none;
-		}
-
-		/* Basic Table Styling */
-		table {
-			border-collapse: collapse;
-			border-spacing: 0;
-			page-break-inside: always;
-			border: 0;
-			margin: 0;
-			padding: 0;
-		}
-
-		th,
-		td {
-			vertical-align: top;
-			text-align: left;
-		}
-
-		table.container {
-			width: 100%;
-			border: 0;
-		}
-
-		tr.no-borders,
-		td.no-borders {
-			border: 0 !important;
-			border-top: 0 !important;
-			border-bottom: 0 !important;
-			padding: 0 !important;
-			width: auto;
-		}
-
-		/* Header */
-		table.head {
-			margin-bottom: 12mm;
-		}
-
-		td.header img {
-			max-height: 3cm;
-			width: auto;
-		}
-
-		td.header {
-			font-size: 16pt;
-			font-weight: 700;
-		}
-
-		td.shop-info {
-			width: 40%;
-		}
-
-		.document-type-label {
-			text-transform: uppercase;
-		}
-
-		/* Recipient addressses & order data */
-		table.order-data-addresses {
-			width: 100%;
-			margin-bottom: 10mm;
-		}
-
-		td.order-data {
-			width: 40%;
-		}
-
-		.invoice .shipping-address {
-			width: 30%;
-		}
-
-		.packing-slip .billing-address {
-			width: 30%;
-		}
-
-		td.order-data table th {
-			font-weight: normal;
-			padding-right: 2mm;
-		}
-
-		/* Order details */
-		table.order-details {
-			width: 100%;
-			margin-bottom: 8mm;
-		}
-
-		.quantity,
-		.price {
-			width: 20%;
-		}
-
-		.order-details tr {
-			page-break-inside: always;
-			page-break-after: auto;
-		}
-
-		.order-details td,
-		.order-details th {
-			border-bottom: 1px #ccc solid;
-			border-top: 1px #ccc solid;
-			padding: 0.375em;
-		}
-
-		.order-details th {
-			font-weight: bold;
-			text-align: left;
-		}
-
-		.order-details thead th {
-			color: white;
-			background-color: black;
-			border-color: black;
-		}
-
-		/* product bundles compatibility */
-		.order-details tr.bundled-item td.product {
-			padding-left: 5mm;
-		}
-
-		.order-details tr.product-bundle td,
-		.order-details tr.bundled-item td {
-			border: 0;
-		}
+        h3,
+        h4 {
+            font-size: 9pt;
+        }
 
 
-		/* item meta formatting for WC2.6 and older */
-		dl {
-			margin: 4px 0;
-		}
+        ol,
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
 
-		dt,
-		dd,
-		dd p {
-			display: inline;
-			font-size: 7pt;
-			line-height: 7pt;
-		}
+        li,
+        ul {
+            margin-bottom: 0.75em;
+        }
 
-		dd {
-			margin-left: 5px;
-		}
+        p {
+            margin: 0;
+            padding: 0;
+        }
 
-		dd:after {
-			content: "\A";
-			white-space: pre;
-		}
+        p+p {
+            margin-top: 1.25em;
+        }
 
-		/* item-meta formatting for WC3.0+ */
-		.wc-item-meta {
-			margin: 4px 0;
-			font-size: 7pt;
-			line-height: 7pt;
-		}
+        a {
+            border-bottom: 1px solid;
+            text-decoration: none;
+        }
 
-		.wc-item-meta p {
-			display: inline;
-		}
+        /* Basic Table Styling */
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            page-break-inside: always;
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
 
-		.wc-item-meta li {
-			margin: 0;
-			margin-left: 5px;
-		}
+        th,
+        td {
+            vertical-align: top;
+            text-align: left;
+        }
 
-		/* Notes & Totals */
-		.customer-notes {
-			margin-top: 5mm;
-		}
+        table.container {
+            width: 100%;
+            border: 0;
+        }
 
-		table.totals {
-			width: 100%;
-			margin-top: 5mm;
-		}
+        tr.no-borders,
+        td.no-borders {
+            border: 0 !important;
+            border-top: 0 !important;
+            border-bottom: 0 !important;
+            padding: 0 !important;
+            width: auto;
+        }
 
-		table.totals th,
-		table.totals td {
-			border: 0;
-			border-top: 1px solid #ccc;
-			border-bottom: 1px solid #ccc;
-		}
+        /* Header */
+        table.head {
+            margin-bottom: 12mm;
+        }
 
-		table.totals th.description,
-		table.totals td.price {
-			width: 50%;
-		}
+        td.header img {
+            max-height: 3cm;
+            width: auto;
+        }
 
-		table.totals tr.order_total td,
-		table.totals tr.order_total th {
-			border-top: 2px solid #000;
-			border-bottom: 2px solid #000;
-			font-weight: bold;
-		}
+        td.header {
+            font-size: 16pt;
+            font-weight: 700;
+        }
 
-		table.totals tr.payment_method {
-			display: none;
-		}
+        td.shop-info {
+            width: 40%;
+        }
 
-		/* Footer Imprint */
-		#footer {
-			position: absolute;
-			bottom: -2cm;
-			left: 0;
-			right: 0;
-			height: 2cm;
-			/* if you change the footer height, don't forget to change the bottom (=negative height) and the @page margin-bottom as well! */
-			text-align: center;
-			border-top: 0.1mm solid gray;
-			margin-bottom: 0;
-			padding-top: 2mm;
-		}
+        .document-type-label {
+            text-transform: uppercase;
+        }
 
-		/* page numbers */
-		.pagenum:before {
-			content: counter(page);
-		}
+        /* Recipient addressses & order data */
+        table.order-data-addresses {
+            width: 100%;
+            margin-bottom: 10mm;
+        }
 
-		.pagenum,
-		.pagecount {
-			font-family: sans-serif;
-		}
-	</style>
-	<style type="text/css"></style>
+        td.order-data {
+            width: 40%;
+        }
+
+        .invoice .shipping-address {
+            width: 30%;
+        }
+
+        .packing-slip .billing-address {
+            width: 30%;
+        }
+
+        td.order-data table th {
+            font-weight: normal;
+            padding-right: 2mm;
+        }
+
+        /* Order details */
+        table.order-details {
+            width: 100%;
+            margin-bottom: 8mm;
+        }
+
+        .quantity,
+        .price {
+            width: 20%;
+        }
+
+        .order-details tr {
+            page-break-inside: always;
+            page-break-after: auto;
+        }
+
+        .order-details td,
+        .order-details th {
+            border-bottom: 1px #ccc solid;
+            border-top: 1px #ccc solid;
+            padding: 0.375em;
+        }
+
+        .order-details th {
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .order-details thead th {
+            color: white;
+            background-color: black;
+            border-color: black;
+        }
+
+        /* product bundles compatibility */
+        .order-details tr.bundled-item td.product {
+            padding-left: 5mm;
+        }
+
+        .order-details tr.product-bundle td,
+        .order-details tr.bundled-item td {
+            border: 0;
+        }
+
+
+        /* item meta formatting for WC2.6 and older */
+        dl {
+            margin: 4px 0;
+        }
+
+        dt,
+        dd,
+        dd p {
+            display: inline;
+            font-size: 7pt;
+            line-height: 7pt;
+        }
+
+        dd {
+            margin-left: 5px;
+        }
+
+        dd:after {
+            content: "\A";
+            white-space: pre;
+        }
+
+        /* item-meta formatting for WC3.0+ */
+        .wc-item-meta {
+            margin: 4px 0;
+            font-size: 7pt;
+            line-height: 7pt;
+        }
+
+        .wc-item-meta p {
+            display: inline;
+        }
+
+        .wc-item-meta li {
+            margin: 0;
+            margin-left: 5px;
+        }
+
+        /* Notes & Totals */
+        .customer-notes {
+            margin-top: 5mm;
+        }
+
+        table.totals {
+            width: 100%;
+            margin-top: 5mm;
+        }
+
+        table.totals th,
+        table.totals td {
+            border: 0;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+
+        table.totals th.description,
+        table.totals td.price {
+            width: 50%;
+        }
+
+        table.totals tr.order_total td,
+        table.totals tr.order_total th {
+            border-top: 2px solid #000;
+            border-bottom: 2px solid #000;
+            font-weight: bold;
+        }
+
+        table.totals tr.payment_method {
+            display: none;
+        }
+
+        /* Footer Imprint */
+        #footer {
+            position: absolute;
+            bottom: -2cm;
+            left: 0;
+            right: 0;
+            height: 2cm;
+            /* if you change the footer height, don't forget to change the bottom (=negative height) and the @page margin-bottom as well! */
+            text-align: center;
+            border-top: 0.1mm solid gray;
+            margin-bottom: 0;
+            padding-top: 2mm;
+        }
+
+        /* page numbers */
+        .pagenum:before {
+            content: counter(page);
+        }
+
+        .pagenum,
+        .pagecount {
+            font-family: sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
 </head>
 
-<body class="invoice vsc-initialized">
+<body class="invoice vsc-initialized paper--a4">
 
-	<table class="head container">
-		<tbody>
-			<tr>
-				<td class="header">
-					<img src="./Rechnung_files/logo-grey-inverted.png" width="474" height="657" alt="Gruseltour Berlin"> </td>
-				<td class="shop-info">
-					<div class="shop-name">
-						<h3>Gruseltour Berlin</h3>
-					</div>
-					<div class="shop-address">
-						<p>Mysterium Tremendum GbR<br>
-							Inhaber Clarissa Herzog &amp; Sebastian Rothe<br>
-							Christian-Ferkel-Str. 3<br>
-							04159 Leipzig</p>
-					</div>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+    <table class="head container">
+        <tbody>
+            <tr>
+                <td class="header">
+                    <img src="./Rechnung_files/logo-grey-inverted.png" width="474" height="657" alt="Gruseltour Berlin">
+                </td>
+                <td class="shop-info">
+                    <div class="shop-name">
+                        <h3>Gruseltour Berlin</h3>
+                    </div>
+                    <div class="shop-address">
+                        <p>Mysterium Tremendum GbR<br>
+                            Inhaber Clarissa Herzog &amp; Sebastian Rothe<br>
+                            Christian-Ferkel-Str. 3<br>
+                            04159 Leipzig</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-	<h1 class="document-type-label">
-		Rechnung</h1>
-
-
-	<table class="order-data-addresses">
-		<tbody>
-			<tr>
-				<td class="address billing-address">
-					<!-- <h3>Rechnungsadresse:</h3> -->
-					Adina Apartment Hotel Berlin Mitte<br>Front Office<br>Platz vor dem Neuen Tor 6<br>10115 Berlin </td>
-				<td class="address shipping-address">
-				</td>
-				<td class="order-data">
-					<table>
-						<tbody>
-							<tr class="invoice-number">
-								<th>Rechnungsnummer:</th>
-								<td>B-WOO2018-1000</td>
-							</tr>
-							<tr class="invoice-date">
-								<th>Rechnungsdatum:</th>
-								<td>11. September 2018</td>
-							</tr>
-							<tr class="order-number">
-								<th>Bestellnummer:</th>
-								<td>2062</td>
-							</tr>
-							<tr class="order-date">
-								<th>Bestelldatum:</th>
-								<td>11. September 2018</td>
-							</tr>
-							<tr class="payment-method">
-								<th>Zahlungsart:</th>
-								<td>Rechnung</td>
-							</tr>
-						</tbody>
-					</table>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+    <h1 class="document-type-label">
+        Rechnung</h1>
 
 
-	<table class="order-details">
-		<thead>
-			<tr>
-				<th class="product">Produkt</th>
-				<th class="quantity">Anzahl</th>
-				<th class="price">Preis</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr class="1">
-				<td class="product">
-					<span class="item-name">Gruseltour Berlin Ticket - Fr, 22.9. 20:00Uhr</span>
-					<span class="item-meta"></span>
-					<dl class="meta">
-						<dt class="sku">Art.-Nr.:</dt>
-						<dd class="sku">B-TICKET</dd>
-					</dl>
-				</td>
-				<td class="quantity">7</td>
-				<td class="price"><span class="woocommerce-Price-amount amount">98,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></span></td>
-			</tr>
-		</tbody>
-		<tfoot>
-			<tr class="no-borders">
-				<td class="no-borders">
-					<div class="customer-notes">
-						<h3>Anmerkungen</h3>
-						<p>Test Notiz</p>
-					</div>
-				</td>
-				<td class="no-borders" colspan="2">
-					<table class="totals">
-						<tfoot>
-							<tr class="cart_subtotal">
-								<td class="no-borders"></td>
-								<th class="description">Zwischensumme</th>
-								<td class="price"><span class="totals-price"><span class="woocommerce-Price-amount amount">98,00&nbsp;<span
-											 class="woocommerce-Price-currencySymbol">€</span></span></span></td>
-							</tr>
-							<tr class="payment_method">
-								<td class="no-borders"></td>
-								<th class="description">Zahlungsmethode</th>
-								<td class="price"><span class="totals-price">Rechnung</span></td>
-							</tr>
-							<tr class="order_total">
-								<td class="no-borders"></td>
-								<th class="description">Gesamt</th>
-								<td class="price"><span class="totals-price"><span class="woocommerce-Price-amount amount">98,00&nbsp;<span
-											 class="woocommerce-Price-currencySymbol">€</span></span></span></td>
-							</tr>
-						</tfoot>
-					</table>
-				</td>
-			</tr>
-		</tfoot>
-	</table>
+    <table class="order-data-addresses">
+        <tbody>
+            <tr>
+                <td class="address billing-address">
+                    <!-- <h3>Rechnungsadresse:</h3> -->
+                    Adina Apartment Hotel Berlin Mitte<br>Front Office<br>Platz vor dem Neuen Tor 6<br>10115 Berlin
+                </td>
+                <td class="address shipping-address">
+                </td>
+                <td class="order-data">
+                    <table>
+                        <tbody>
+                            <tr class="invoice-number">
+                                <th>Rechnungsnummer:</th>
+                                <td>B-WOO2018-1000</td>
+                            </tr>
+                            <tr class="invoice-date">
+                                <th>Rechnungsdatum:</th>
+                                <td>11. September 2018</td>
+                            </tr>
+                            <tr class="order-number">
+                                <th>Bestellnummer:</th>
+                                <td>2062</td>
+                            </tr>
+                            <tr class="order-date">
+                                <th>Bestelldatum:</th>
+                                <td>11. September 2018</td>
+                            </tr>
+                            <tr class="payment-method">
+                                <th>Zahlungsart:</th>
+                                <td>Rechnung</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 
-	<p>Kein Mehrwertsteuerausweis, da Kleinunternehmer nach §19 (1) UStG.</p><br>
-	<hr><br>
-	<section>
-		<h2>GAST</h2><br>
-		<ul>
-			<li><strong>Name:</strong> Sebastian</li>
-			<li><strong>Telefon:</strong> 0177123123</li>
-			<li><strong>eMail:</strong> creeper_si@yahoo.de</li>
-		</ul>
-	</section><br>
-	<hr><br>
-	<section>
-		<h2>TICKETS</h2><br>
-		<p style=""><span style="font-weight:bold;">Hiermit erhaltet ihr offiziell Zutritt zur dunklen Seite der Stadt
-				Berlin!</span><br><br>
-			Aber nur, wenn ihr euch traut. Denn ihr werdet in eine Welt voller düsterer Legenden, gruseliger<br>Geheimnisse aus
-			der Vergangenheit und Furcht einflößender Begebenheiten entführt!</p><br><br>
-		<article>
-			<h2>Gruseltour Berlin Ticket - Fr, 22.9. 20:00Uhr</h2><br>
-			<ol>
-				<li><strong>TICKETNUMMER:</strong> B-WOO2018-1000</li>
-				<li><strong>DATUM:</strong> Fr, 22.9. 20:00Uhr</li>
-				<li><strong>PERSONEN:</strong> 7</li>
-			</ol>
-		</article><br><br>
-	</section><br><br>
-	<section>
-		<h2>TREFFPUNKT</h2><br>
-		<p>Klosterstraße plus Bild</p><br>
-	</section><br><br>
-	<section>
-		<h2>INFORMATIONEN</h2><br>
-		<p>Parken, Toilette, Zu Fuß, Wetterfeste Kleidung</p><br>
-	</section><br><br>
-	<section>
-		<h2>KONTAKT</h2><br>
-		<p>Telefon Mail</p>
-	</section>
+    <table class="order-details">
+        <thead>
+            <tr>
+                <th class="product">Produkt</th>
+                <th class="quantity">Anzahl</th>
+                <th class="price">Preis</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="1">
+                <td class="product">
+                    <span class="item-name">Gruseltour Berlin Ticket - Fr, 22.9. 20:00Uhr</span>
+                    <span class="item-meta"></span>
+                    <dl class="meta">
+                        <dt class="sku">Art.-Nr.:</dt>
+                        <dd class="sku">B-TICKET</dd>
+                    </dl>
+                </td>
+                <td class="quantity">7</td>
+                <td class="price"><span class="woocommerce-Price-amount amount">98,00&nbsp;<span class="woocommerce-Price-currencySymbol">€</span></span></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr class="no-borders">
+                <td class="no-borders">
+                    <div class="customer-notes">
+                        <h3>Anmerkungen</h3>
+                        <p>Test Notiz</p>
+                    </div>
+                </td>
+                <td class="no-borders" colspan="2">
+                    <table class="totals">
+                        <tfoot>
+                            <tr class="cart_subtotal">
+                                <td class="no-borders"></td>
+                                <th class="description">Zwischensumme</th>
+                                <td class="price"><span class="totals-price"><span class="woocommerce-Price-amount amount">98,00&nbsp;<span
+                                                class="woocommerce-Price-currencySymbol">€</span></span></span></td>
+                            </tr>
+                            <tr class="payment_method">
+                                <td class="no-borders"></td>
+                                <th class="description">Zahlungsmethode</th>
+                                <td class="price"><span class="totals-price">Rechnung</span></td>
+                            </tr>
+                            <tr class="order_total">
+                                <td class="no-borders"></td>
+                                <th class="description">Gesamt</th>
+                                <td class="price"><span class="totals-price"><span class="woocommerce-Price-amount amount">98,00&nbsp;<span
+                                                class="woocommerce-Price-currencySymbol">€</span></span></span></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
 
-	1221
+
+    <p>Steuernummer: 232/1212/223<br />
+        Kein Mehrwertsteuerausweis, da Kleinunternehmer nach §19 (1) UStG.</p><br>
+    <hr><br>
+    <div class="ticket">
+        <section class="ticket--card">
+            <h2 style="text-transform: uppercase;">Gebucht von</h2><br>
+            <ul>
+                <li><strong>Name: </strong>Sebastian</li>
+                <li><strong>Telefon: </strong>0177123123</li>
+                <li><strong>eMail: </strong>creeper_si@yahoo.de</li>
+            </ul>
+        </section>
+
+        <section class="ticket--card">
+            <h2>TICKETS</h2><br>
+            <p><span style="font-weight:bold;">Hiermit erhaltet ihr offiziell Zutritt zur dunklen Seite der Stadt
+                    Berlin!</span><br><br>
+                Aber nur, wenn ihr euch traut. Denn ihr werdet in eine Welt voller düsterer Legenden, gruseliger<br>Geheimnisse
+                aus
+                der Vergangenheit und Furcht einflößender Begebenheiten entführt!</p><br><br>
+            <article>
+                <h2>Gruseltour Berlin Ticket - Fr, 22.9. 20:00Uhr</h2><br>
+                <ol>
+                    <li><strong>TICKETNUMMER:</strong> B-WOO2018-1000</li>
+                    <li><strong>DATUM:</strong> Fr, 22.9. 20:00Uhr</li>
+                    <li><strong>PERSONEN:</strong> 7</li>
+                </ol>
+            </article><br><br>
+        </section>
+        <section class="ticket--card">
+            <h2>TREFFPUNKT</h2><br>
+            <p>Klosterstraße plus Bild</p><br>
+        </section>
+        <section class="ticket--card">
+            <h2>INFORMATIONEN</h2><br>
+            <p>Parken, Toilette, Zu Fuß, Wetterfeste Kleidung</p><br>
+        </section>
+        <section class="ticket--card">
+            <h2>KONTAKT</h2>
+            <p>Telefon Mail</p>
+        </section>
+    </div>
+
+    Footer
 </body>
 
 </html>
