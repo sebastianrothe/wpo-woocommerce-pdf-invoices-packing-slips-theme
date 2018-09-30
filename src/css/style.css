@@ -6,13 +6,14 @@
 .ticket {
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: space-between;
+}
+
+.ticket--information {
+    flex: 1 0 auto;
+    margin-right: 5px;
+    width: 30%;
 }
 
 .ticket--card {
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: auto;
-    margin-right: 0.5rem;
+    flex-basis: 50%;
 }
