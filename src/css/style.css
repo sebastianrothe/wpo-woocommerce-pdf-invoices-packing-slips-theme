@@ -1,6 +1,7 @@
 .paper--a4 {
     max-width: 21cm;
     max-height: 29cm;
+    overflow: hidden;
 }
 
 .ticket {
@@ -8,12 +9,50 @@
     flex-wrap: wrap;
 }
 
-.ticket--information {
+.ticket__information {
     flex: 1 0 auto;
-    margin-right: 5px;
+    margin-right: 8px;
     width: 30%;
 }
 
-.ticket--card {
-    flex-basis: 50%;
+.ticket__information h2 {
+    margin-bottom: 0.5em;
+}
+
+.ticket__card {
+    flex-basis: 63%;
+}
+
+.ticket__data {
+    font-size: 14pt;
+}
+
+.ticket__meeting-point {
+    max-width: 42%;
+}
+
+.ticket__tips2 {
+    list-style: disc;
+    margin-left: 1em;
+}
+
+.ticket__tips li {
+    text-align: justify;
+}
+
+.footer__socialmedia {
+    display: flex;
+    justify-content: space-between;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.blocktext {
+    text-align: justify;
+}
+
+.bold {
+    font-weight: bold;
 }

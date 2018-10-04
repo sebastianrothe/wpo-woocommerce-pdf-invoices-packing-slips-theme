@@ -422,8 +422,8 @@
         Kein Mehrwertsteuerausweis, da Kleinunternehmer nach §19 (1) UStG.</p><br>
     <hr><br>
     <div class="ticket">
-        <section class="ticket--information">
-            <h2 style="text-transform: uppercase;">Gebucht von</h2><br>
+        <section class="ticket__information">
+            <h2 class="uppercase">Gebucht von</h2>
             <ul>
                 <li><strong>Name: </strong>Sebastian</li>
                 <li><strong>Telefon: </strong>0177123123</li>
@@ -431,37 +431,64 @@
             </ul>
         </section>
 
-        <section class="ticket--information ticket--card">
-            <h2>TICKETS</h2><br>
-            <p><span style="font-weight:bold;">Hiermit erhaltet ihr offiziell Zutritt zur dunklen Seite der Stadt
+        <section class="ticket__information ticket__card">
+            <h2>TICKETS</h2>
+            <p><span class="bold">Hiermit erhaltet ihr offiziell Zutritt zur dunklen Seite der Stadt
                     Berlin!</span><br><br>
                 Aber nur, wenn ihr euch traut. Denn ihr werdet in eine Welt voller düsterer Legenden, gruseliger<br>Geheimnisse
                 aus
                 der Vergangenheit und Furcht einflößender Begebenheiten entführt!</p><br><br>
             <article>
-                <h2>Gruseltour Berlin Ticket - Fr, 22.9. 20:00Uhr</h2><br>
-                <ol>
+                <h2 class="uppercase">Gruseltour Berlin Ticket - Fr, 22.9. 20:00Uhr</h2><br>
+                <ol class="ticket__data">
                     <li><strong>TICKETNUMMER:</strong> B-WOO2018-1000</li>
                     <li><strong>DATUM:</strong> Fr, 22.9. 20:00Uhr</li>
                     <li><strong>PERSONEN:</strong> 7</li>
                 </ol>
             </article><br><br>
         </section>
-        <section class="ticket--information">
-            <h2>TREFFPUNKT</h2><br>
-            <p>Klosterstraße plus Bild</p><br>
+        <section class="ticket__information">
+            <h2>TREFFPUNKT</h2>
+            <p class="blocktext">Der Treffpunkt befindet sich vor der Klosterruine U-Bhf Klosterstraße. Direkt hinter
+                dem Alexa.
+                <span class="bold">Klosterstraße 73a, 10179 Berlin</span></p>
+            <img class="ticket__meeting-point" src="img/Treffpunkt Gruseltour Berlin.png" alt="Treffpunkt Gruseltour Berlin" />
         </section>
-        <section class="ticket--information">
-            <h2>INFORMATIONEN</h2><br>
-            <p>Parken, Toilette, Zu Fuß, Wetterfeste Kleidung</p><br>
+        <section class="ticket__information">
+            <h2>INFORMATIONEN</h2>
+            <article>
+                <ul class="ticket__tips">
+                    <li>Die Tour dauert 90 Minuten</li>
+                    <li>Wir legen während der Tour 1,5km zu Fuß zurück.</li>
+                    <li>Wir laufen zum Teil über Kopfsteinpflaster.</li>
+                    <li>Die Tour findet bei Wind und Wetter draußen statt. Wir finden aber immer wieder Plätze zum
+                        Unterstellen.</li>
+                    <li>Parken</li>
+                    <li>Toilette</li>
+                </ul>
+            </article>
         </section>
-        <section class="ticket--information">
+        <section class="ticket__information">
             <h2>KONTAKT</h2>
-            <p>Telefon Mail</p>
+            <p>
+                <ul class="ticket__contact">
+                    <li>Telefon, WhatsApp, Telegram, Threema, Signal<br /> +49 176 569 718 64</li>
+                    <li>Mail: kontakt@gruseltour-berlin.de</li>
+                </ul>
+            </p>
         </section>
     </div>
-
-    Footer
+    <footer>
+        <p>
+            <ul class="footer__socialmedia">
+                <li>Facebook @GruseltourBerlin</li>
+                <li>Instagram @Gruseltour</li>
+                <li>Twitter @Gruseltour</li>
+                <li>Google+</li>
+                <li>Tripadvisor </li>
+            </ul>
+        </p>
+    </footer>
 </body>
 
 </html>
