@@ -42,7 +42,10 @@
 
 .footer__socialmedia {
     display: flex;
-    justify-content: space-between;
+}
+
+.footer__socialmedia li {
+    margin-right: 2em;
 }
 
 .uppercase {
