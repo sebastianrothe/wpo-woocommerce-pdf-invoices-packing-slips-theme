@@ -94,15 +94,15 @@ if ($this->has_header_logo()) {
 	</thead>
 	<tbody>
 		<?php $items = $this->get_order_items();if (sizeof($items) > 0): foreach ($items as $item_id => $item): ?>
-			<tr class="<?php echo apply_filters('wpo_wcpdf_item_row_class', $item_id, $this->type, $this->order, $item_id); ?>">
-				<td class="product">
-					<?php $description_label = __('Description', 'woocommerce-pdf-invoices-packing-slips'); // registering alternate label translation ?>
-					<span class="item-name"><?php echo $item['name']; ?></span>
-					<?php do_action('wpo_wcpdf_before_item_meta', $this->type, $item, $this->order);?>
-					<span class="item-meta"><?php echo $item['meta']; ?></span>
-					<dl class="meta">
-						<?php $description_label = __('SKU', 'woocommerce-pdf-invoices-packing-slips'); // registering alternate label translation ?>
-						<?php if (!empty($item['sku'])): ?><dt class="sku"><?php _e('SKU:', 'woocommerce-pdf-invoices-packing-slips');?></dt><dd class="sku"><?php echo $item['sku']; ?></dd><?php endif;?>
+					<tr class="<?php echo apply_filters('wpo_wcpdf_item_row_class', $item_id, $this->type, $this->order, $item_id); ?>">
+						<td class="product">
+							<?php $description_label = __('Description', 'woocommerce-pdf-invoices-packing-slips'); // registering alternate label translation ?>
+							<span class="item-name"><?php echo $item['name']; ?></span>
+							<?php do_action('wpo_wcpdf_before_item_meta', $this->type, $item, $this->order);?>
+							<span class="item-meta"><?php echo $item['meta']; ?></span>
+							<dl class="meta">
+								<?php $description_label = __('SKU', 'woocommerce-pdf-invoices-packing-slips'); // registering alternate label translation ?>
+								<?php if (!empty($item['sku'])): ?><dt class="sku"><?php _e('SKU:', 'woocommerce-pdf-invoices-packing-slips');?></dt><dd class="sku"><?php echo $item['sku']; ?></dd><?php endif;?>
 					<?php if (!empty($item['weight'])): ?><dt class="weight"><?php _e('Weight:', 'woocommerce-pdf-invoices-packing-slips');?></dt><dd class="weight"><?php echo $item['weight']; ?><?php echo get_option('woocommerce_weight_unit'); ?></dd><?php endif;?>
 				</dl>
 				<?php do_action('wpo_wcpdf_after_item_meta', $this->type, $item, $this->order);?>
@@ -145,64 +145,64 @@ if ($this->has_header_logo()) {
 
 <p>Steuernummer 232/155/23209<br />
         Kein Mehrwertsteuerausweis, da Kleinunternehmer nach §19 (1) UStG.</p><br>
-<hr><br>
-<div class="ticket">
-    <section class="ticket__information">
-        <h2 class="uppercase">Gebucht von</h2>
-        <ul>
-            <li><strong>Name: </strong>Sebastian</li>
-            <li><strong>Telefon: </strong>0177123123</li>
-            <li><strong>eMail: </strong>creeper_si@yahoo.de</li>
-        </ul>
-    </section>
+    <hr><br>
+    <div class="ticket">
+        <section class="ticket__information">
+            <h2 class="uppercase">Gebucht von</h2>
+            <ul>
+                <li><strong>Name: </strong>Sebastian</li>
+                <li><strong>Telefon: </strong>0177123123</li>
+                <li><strong>eMail: </strong>creeper_si@yahoo.de</li>
+            </ul>
+        </section>
 
-    <section class="ticket__information ticket__card">
-        <h2>TICKETS</h2>
-        <p><span class="bold">Hiermit erhaltet ihr offiziell Zutritt zur dunklen Seite der Stadt
-                Berlin!</span><br><br>
-            Aber nur, wenn ihr euch traut. Denn ihr werdet in eine Welt voller düsterer Legenden, gruseliger<br>Geheimnisse
-            aus
-            der Vergangenheit und Furcht einflößender Begebenheiten entführt!</p><br><br>
-        <article>
-            <h2 class="uppercase">Gruseltour Berlin Ticket - Fr, 22.9. 20:00Uhr</h2><br>
-            <ol class="ticket__data">
-                <li><strong>TICKETNUMMER:</strong> B-WOO2018-1000</li>
-                <li><strong>DATUM:</strong> Fr, 22.9. 20:00Uhr</li>
-                <li><strong>PERSONEN:</strong> 7</li>
-            </ol>
-        </article><br><br>
-    </section>
-    <section class="ticket__information">
-        <h2>TREFFPUNKT</h2>
-        <p class="blocktext">Der Treffpunkt befindet sich vor der Klosterruine U-Bhf Klosterstraße. Direkt hinter
-            dem Alexa.
-            <span class="bold">Klosterstraße 73a, 10179 Berlin</span></p>
-        <img class="ticket__meeting-point" src="img/Treffpunkt Gruseltour Berlin.png" alt="Treffpunkt Gruseltour Berlin" />
-    </section>
-    <section class="ticket__information">
-        <h2>INFORMATIONEN</h2>
-        <article>
-            <ul class="ticket__tips">
-                <li>Die Tour dauert 90 Minuten</li>
-                <li>Wir legen während der Tour 1,5km zu Fuß zurück.</li>
-                <li>Wir laufen zum Teil über Kopfsteinpflaster.</li>
-                <li>Die Tour findet bei Wind und Wetter draußen statt. Wir finden aber immer wieder Plätze zum
-                    Unterstellen.</li>
-                <li>Parken</li>
-                <li>Toilette</li>
-            </ul>
-        </article>
-    </section>
-    <section class="ticket__information">
-        <h2>KONTAKT</h2>
-        <p>
-            <ul class="ticket__contact">
-                <li>Telefon, WhatsApp, Telegram, Threema, Signal<br /> +49 176 569 718 64</li>
-                <li>Mail: kontakt@gruseltour-berlin.de</li>
-            </ul>
-        </p>
-    </section>
-</div>
+        <section class="ticket__information ticket__card">
+            <h2>TICKETS</h2>
+            <p><span class="bold">Hiermit erhaltet ihr offiziell Zutritt zur dunklen Seite der Stadt Berlin!</span><br><br>
+                Aber nur, wenn ihr euch traut. Denn ihr werdet in eine Welt voller düsterer Legenden, gruseliger<br>
+                Geheimnisse aus der Vergangenheit und Furcht einflößender Begebenheiten entführt!
+            </p><br><br>
+            <article>
+                <h2 class="uppercase">Gruseltour Berlin Ticket - Fr, 22.9. 20:00Uhr</h2><br>
+                <ol class="ticket__data">
+                    <li><strong>TICKETNUMMER: </strong>B-WOO2018-1000</li>
+                    <li><strong>DATUM: </strong>Fr, 22.9. 20:00Uhr</li>
+                    <li><strong>PERSONEN: </strong>7</li>
+                </ol>
+            </article><br><br>
+        </section>
+        <section class="ticket__information">
+            <h2>TREFFPUNKT</h2>
+            <p class="blocktext">Der Treffpunkt befindet sich vor der Klosterruine U-Bhf Klosterstraße. Direkt hinter
+                dem Alexa.
+                <span class="bold">Klosterstraße 73a, 10179 Berlin</span></p>
+            <img class="ticket__meeting-point" src="./GruseltourBerlin2018/img/Treffpunkt Gruseltour Berlin.png" alt="Treffpunkt Gruseltour Berlin" />
+        </section>
+        <section class="ticket__information">
+            <h2>INFORMATIONEN</h2>
+            <article>
+                <ul class="ticket__tips">
+                    <li>Die Tour dauert 90 Minuten</li>
+                    <li>Wir legen während der Tour 1,5km zu Fuß zurück.</li>
+                    <li>Wir laufen zum Teil über Kopfsteinpflaster.</li>
+                    <li>Die Tour findet bei Wind und Wetter draußen statt. Wir finden aber immer wieder Plätze zum
+                        Unterstellen.</li>
+                    <li>Parken</li>
+                    <li>Toilette</li>
+                </ul>
+            </article>
+        </section>
+        <section class="ticket__information">
+            <h2>KONTAKT</h2>
+            <p>
+                <ul class="ticket__contact">
+                    <li>Telefon, WhatsApp, Telegram, Threema, Signal<br />
+                    +49 176 569 718 64</li>
+                    <li>Mail: kontakt@gruseltour-berlin.de</li>
+                </ul>
+            </p>
+        </section>
+    </div>
 
 <?php if ($this->get_footer()): ?>
 <div id="footer">
@@ -211,15 +211,14 @@ if ($this->has_header_logo()) {
 <?php endif;?>
 
 <footer>
-    <p>
-        <ul class="footer__socialmedia">
-            <li>Facebook @GruseltourBerlin</li>
-            <li>Instagram @Gruseltour</li>
-            <li>Twitter @Gruseltour</li>
-            <li>Google+</li>
-            <li>Tripadvisor </li>
-        </ul>
-    </p>
-</footer>
+        <p>
+            <ul class="footer__socialmedia">
+                <li>Facebook @GruseltourBerlin</li>
+                <li>Instagram @Gruseltour</li>
+                <li>Twitter @Gruseltour</li>
+                <li>Tripadvisor Gruseltour Berlin</li>
+            </ul>
+        </p>
+    </footer>
 
 <?php do_action('wpo_wcpdf_after_document', $this->type, $this->order);?>
