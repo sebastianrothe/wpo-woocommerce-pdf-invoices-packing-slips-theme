@@ -144,7 +144,7 @@ if ($this->has_header_logo()) {
 <?php do_action('wpo_wcpdf_after_order_details', $this->type, $this->order);?>
 
 <p>Steuernummer 232/155/23209<br />
-        Kein Mehrwertsteuerausweis, da Kleinunternehmer nach §19 (1) UStG.</p><br>
+        Alle Preise enthalten die gesetzliche Umsatzsteuer.</p><br>
     <hr><br>
     <div class="ticket">
         <section class="ticket__information">
