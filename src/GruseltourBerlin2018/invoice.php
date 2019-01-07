@@ -150,9 +150,9 @@ if ($this->has_header_logo()) {
         <section class="ticket__information">
             <h2 class="uppercase">Gebucht von</h2>
             <ul>
-                <li><strong>Name: </strong>Sebastian</li>
-                <li><strong>Telefon: </strong>0177123123</li>
-                <li><strong>eMail: </strong>creeper_si@yahoo.de</li>
+                <li><strong>Name: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--name', true);?></li>
+                <li><strong>Telefon: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--phone', true);?></li>
+                <li><strong>eMail: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--email', true);?></li>
             </ul>
         </section>
 
@@ -162,14 +162,17 @@ if ($this->has_header_logo()) {
                 Aber nur, wenn ihr euch traut. Denn ihr werdet in eine Welt voller düsterer Legenden, gruseliger<br>
                 Geheimnisse aus der Vergangenheit und Furcht einflößender Begebenheiten entführt!
             </p><br><br>
+
+            <?php foreach ($this->get_order_items() as $item) { ?>
             <article>
-                <h2 class="uppercase">Gruseltour Berlin Ticket - Fr, 22.9. 20:00Uhr</h2><br>
+                <h2 class="uppercase"><?php echo $item->get_name();?> - <?php echo $item->get_meta('datum');?></h2><br>
                 <ol class="ticket__data">
-                    <li><strong>TICKETNUMMER: </strong>B-WOO2018-1000</li>
-                    <li><strong>DATUM: </strong>Fr, 22.9. 20:00Uhr</li>
-                    <li><strong>PERSONEN: </strong>7</li>
+                    <li><strong>TICKETNUMMER: </strong><?php echo $this->invoice_number();?></li>
+                    <li><strong>DATUM: </strong><?php echo $item->get_meta('datum');?></li>
+                    <li><strong>PERSONEN: </strong><?php echo $item->get_quantity();?></li>
                 </ol>
             </article><br><br>
+            <?php } ?>
         </section>
         <section class="ticket__information">
             <h2>TREFFPUNKT</h2>
@@ -187,8 +190,8 @@ if ($this->has_header_logo()) {
                     <li>Wir laufen zum Teil über Kopfsteinpflaster.</li>
                     <li>Die Tour findet bei Wind und Wetter draußen statt. Wir finden aber immer wieder Plätze zum
                         Unterstellen.</li>
-                    <li>Parken</li>
-                    <li>Toilette</li>
+                    <!-- <li>Parken</li>
+                    <li>Toilette</li> -->
                 </ul>
             </article>
         </section>
