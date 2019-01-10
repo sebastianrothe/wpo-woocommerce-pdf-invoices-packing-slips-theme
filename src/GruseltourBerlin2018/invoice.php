@@ -1,4 +1,7 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
+<?php if (!defined('ABSPATH')) {
+    exit;
+}
+// Exit if accessed directly ?>
 <?php do_action('wpo_wcpdf_before_document', $this->type, $this->order);?>
 
 <table class="head container">
@@ -95,15 +98,15 @@ if ($this->has_header_logo()) {
 	</thead>
 	<tbody>
 		<?php $items = $this->get_order_items();if (sizeof($items) > 0): foreach ($items as $item_id => $item): ?>
-					<tr class="<?php echo apply_filters('wpo_wcpdf_item_row_class', $item_id, $this->type, $this->order, $item_id); ?>">
-						<td class="product">
-							<?php $description_label = __('Description', 'woocommerce-pdf-invoices-packing-slips'); // registering alternate label translation ?>
-							<span class="item-name"><?php echo $item['name']; ?></span>
-							<?php do_action('wpo_wcpdf_before_item_meta', $this->type, $item, $this->order);?>
-							<span class="item-meta"><?php echo $item['meta']; ?></span>
-							<dl class="meta">
-								<?php $description_label = __('SKU', 'woocommerce-pdf-invoices-packing-slips'); // registering alternate label translation ?>
-								<?php if (!empty($item['sku'])): ?><dt class="sku"><?php _e('SKU:', 'woocommerce-pdf-invoices-packing-slips');?></dt><dd class="sku"><?php echo $item['sku']; ?></dd><?php endif;?>
+						<tr class="<?php echo apply_filters('wpo_wcpdf_item_row_class', $item_id, $this->type, $this->order, $item_id); ?>">
+							<td class="product">
+								<?php $description_label = __('Description', 'woocommerce-pdf-invoices-packing-slips'); // registering alternate label translation ?>
+								<span class="item-name"><?php echo $item['name']; ?></span>
+								<?php do_action('wpo_wcpdf_before_item_meta', $this->type, $item, $this->order);?>
+								<span class="item-meta"><?php echo $item['meta']; ?></span>
+								<dl class="meta">
+									<?php $description_label = __('SKU', 'woocommerce-pdf-invoices-packing-slips'); // registering alternate label translation ?>
+									<?php if (!empty($item['sku'])): ?><dt class="sku"><?php _e('SKU:', 'woocommerce-pdf-invoices-packing-slips');?></dt><dd class="sku"><?php echo $item['sku']; ?></dd><?php endif;?>
 					<?php if (!empty($item['weight'])): ?><dt class="weight"><?php _e('Weight:', 'woocommerce-pdf-invoices-packing-slips');?></dt><dd class="weight"><?php echo $item['weight']; ?><?php echo get_option('woocommerce_weight_unit'); ?></dd><?php endif;?>
 				</dl>
 				<?php do_action('wpo_wcpdf_after_item_meta', $this->type, $item, $this->order);?>
@@ -151,9 +154,9 @@ if ($this->has_header_logo()) {
         <section class="ticket__information">
             <h2 class="uppercase">Gebucht von</h2>
             <ul>
-                <li><strong>Name: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--name', true);?></li>
-                <li><strong>Telefon: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--phone', true);?></li>
-                <li><strong>eMail: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--email', true);?></li>
+                <li><strong>Name: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--name', true); ?></li>
+                <li><strong>Telefon: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--phone', true); ?></li>
+                <li><strong>eMail: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--email', true); ?></li>
             </ul>
         </section>
 
@@ -164,16 +167,16 @@ if ($this->has_header_logo()) {
                 Geheimnisse aus der Vergangenheit und Furcht einflößender Begebenheiten entführt!
             </p><br><br>
 
-            <?php foreach ($this->get_order_items() as $item) { ?>
+            <?php foreach ($this->get_order_items() as $item) {?>
             <article>
-                <h2 class="uppercase"><?php echo $item['name'];?> - <?php echo $item['meta']['datum'];?></h2><br>
+                <h2 class="uppercase"><?php echo $item['name']; ?> - <?php echo $item['meta']; ?></h2><br>
                 <ol class="ticket__data">
-                    <li><strong>TICKETNUMMER: </strong><?php echo $this->invoice_number();?></li>
-                    <li><strong>DATUM: </strong><?php echo $item['meta']['datum'];?></li>
-                    <li><strong>PERSONEN: </strong><?php echo $item['quantity'];?></li>
+                    <li><strong>TICKETNUMMER: </strong><?php echo $this->invoice_number(); ?></li>
+                    <li><strong>DATUM: </strong><?php echo $item['meta']; ?></li>
+                    <li><strong>PERSONEN: </strong><?php echo $item['quantity']; ?></li>
                 </ol>
             </article><br><br>
-            <?php } ?>
+            <?php }?>
         </section>
         <section class="ticket__information">
             <h2>TREFFPUNKT</h2>
