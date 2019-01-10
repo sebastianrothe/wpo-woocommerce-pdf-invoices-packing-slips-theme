@@ -1,4 +1,4 @@
-<?php //do_action('wpo_wcpdf_before_document', $this->type, $this->order);?>
+<?php do_action('wpo_wcpdf_before_document', $this->type, $this->order);?>
 
 <table class="head container">
 	<tr>
@@ -25,7 +25,7 @@ if ($this->has_header_logo()) {
 ?>
 </h1>
 
-<?php //do_action('wpo_wcpdf_after_document_label', $this->type, $this->order);?>
+<?php do_action('wpo_wcpdf_after_document_label', $this->type, $this->order);?>
 
 <table class="order-data-addresses">
 	<tr>
@@ -82,7 +82,7 @@ if ($this->has_header_logo()) {
 	</tr>
 </table>
 
-<?php //do_action('wpo_wcpdf_before_order_details', $this->type, $this->order);?>
+<?php do_action('wpo_wcpdf_before_order_details', $this->type, $this->order);?>
 
 <table class="order-details">
 	<thead>
@@ -143,8 +143,8 @@ if ($this->has_header_logo()) {
 
 <?php //do_action('wpo_wcpdf_after_order_details', $this->type, $this->order);?>
 
-<p>USt.-Id: <br />
-        Alle Preise enthalten die gesetzliche Mehrwertsteuer.</p><br>
+<p>USt-ID: DE311874101<br />
+        Alle Preise inkl. Mehrwertsteuer.</p><br>
     <hr><br>
     <div class="ticket">
         <section class="ticket__information">
@@ -165,11 +165,11 @@ if ($this->has_header_logo()) {
 
             <?php foreach ($this->get_order_items() as $item) { ?>
             <article>
-                <h2 class="uppercase"><?php echo $item->get_name();?> - <?php echo $item->get_meta('datum');?></h2><br>
+                <h2 class="uppercase"><?php echo $item['name'];?> - <?php echo $item['meta']['datum'];?></h2><br>
                 <ol class="ticket__data">
                     <li><strong>TICKETNUMMER: </strong><?php echo $this->invoice_number();?></li>
-                    <li><strong>DATUM: </strong><?php echo $item->get_meta('datum');?></li>
-                    <li><strong>PERSONEN: </strong><?php echo $item->get_quantity();?></li>
+                    <li><strong>DATUM: </strong><?php echo $item['meta']['datum'];?></li>
+                    <li><strong>PERSONEN: </strong><?php echo $item['quantity'];?></li>
                 </ol>
             </article><br><br>
             <?php } ?>
