@@ -1,4 +1,4 @@
-<?php do_action('wpo_wcpdf_before_document', $this->type, $this->order);?>
+<?php //do_action('wpo_wcpdf_before_document', $this->type, $this->order);?>
 
 <table class="head container">
 	<tr>
@@ -25,7 +25,7 @@ if ($this->has_header_logo()) {
 ?>
 </h1>
 
-<?php do_action('wpo_wcpdf_after_document_label', $this->type, $this->order);?>
+<?php //do_action('wpo_wcpdf_after_document_label', $this->type, $this->order);?>
 
 <table class="order-data-addresses">
 	<tr>
@@ -82,7 +82,7 @@ if ($this->has_header_logo()) {
 	</tr>
 </table>
 
-<?php do_action('wpo_wcpdf_before_order_details', $this->type, $this->order);?>
+<?php //do_action('wpo_wcpdf_before_order_details', $this->type, $this->order);?>
 
 <table class="order-details">
 	<thead>
@@ -141,10 +141,10 @@ if ($this->has_header_logo()) {
 	</tfoot>
 </table>
 
-<?php do_action('wpo_wcpdf_after_order_details', $this->type, $this->order);?>
+<?php //do_action('wpo_wcpdf_after_order_details', $this->type, $this->order);?>
 
-<p>Steuernummer 232/155/23209<br />
-        Alle Preise enthalten die gesetzliche Umsatzsteuer.</p><br>
+<p>USt.-Id: <br />
+        Alle Preise enthalten die gesetzliche Mehrwertsteuer.</p><br>
     <hr><br>
     <div class="ticket">
         <section class="ticket__information">
