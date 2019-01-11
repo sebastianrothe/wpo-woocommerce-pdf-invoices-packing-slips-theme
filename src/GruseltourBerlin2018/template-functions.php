@@ -8,27 +8,18 @@ if (!defined('ABSPATH')) {
 }
 // Exit if accessed directly
 
-add_action('add_custom_style_for_invoices', 'wpo_wcpdf_custom_styles', 10, 2);
+add_action('wpo_wcpdf_custom_styles', 'add_custom_style_for_invoices', 10, 2);
 function add_custom_style_for_invoices($document_type, $document)
 {
-    $css = locate_style("gruseltourberlin-invoice.css");
+    $file = $document->get_template_path() . '/css/gruseltourberlin-invoice.css';
+    $css = apply_filters('wpo_wcpdf_template_styles_file', $file);
 
     ob_start();
     if (file_exists($css)) {
         include $css;
     }
     $css = ob_get_clean();
+    $css = apply_filters('wpo_wcpdf_template_styles', $css, $document);
+
     echo $css;
-}
-
-// copied from abstract-wcpdf-order-document.php
-function locate_style($file)
-{
-    if (empty($file)) {
-        $file = $this->type . '.php';
-    }
-    $path = "./css";
-    $file_path = "{$path}/{$file}";
-
-    return $file_path;
 }
