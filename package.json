@@ -5,7 +5,7 @@
     "author": "Sebastian Rothe",
     "license": "ISC",
     "scripts": {
-        "start": "browser-sync start --server 'src' --watch --files 'src'",
+        "start": "browser-sync start --server 'ideas' --watch --files 'ideas'",
         "dev": "heml develop src/ticket.heml --open"
     },
     "dependencies": {
