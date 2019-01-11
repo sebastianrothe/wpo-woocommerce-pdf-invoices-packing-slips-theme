@@ -167,12 +167,12 @@ if ($this->has_header_logo()) {
             Geheimnisse aus der Vergangenheit und Furcht einflößender Begebenheiten entführt!
         </p><br><br>
 
-        <?php foreach ($this->get_order_items() as $item) {?>
+        <?php foreach ($this->get_order_items() as $item_id => $item) {?>
         <article>
             <h2 class="uppercase"><?php echo $item['name']; ?></h2><br>
             <ol class="ticket__data">
                 <li><strong>TICKETNUMMER: </strong><?php echo $this->invoice_number(); ?></li>
-                <li><strong>DATUM: </strong><?php print_r($item['meta']);?></li>
+                <li><strong>DATUM: </strong><?php echo wc_get_order_item_meta($item_id, 'datum'); ?></li>
                 <li><strong>PERSONEN: </strong><?php echo $item['quantity']; ?></li>
             </ol>
         </article><br><br>
