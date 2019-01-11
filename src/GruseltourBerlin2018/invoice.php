@@ -18,6 +18,7 @@ if ($this->has_header_logo()) {
 		<td class="shop-info">
 			<div class="shop-name"><h3><?php $this->shop_name();?></h3></div>
 			<div class="shop-address"><?php $this->shop_address();?></div>
+			<div class="shop-vat">USt-ID: DE311874101</div>
 		</td>
 	</tr>
 </table>
@@ -147,68 +148,68 @@ if ($this->has_header_logo()) {
 
 <?php //do_action('wpo_wcpdf_after_order_details', $this->type, $this->order);?>
 
-<p>USt-ID: DE311874101<br /></p><br>
-    <hr><br>
-    <div class="ticket">
-        <section class="ticket__information">
-            <h2 class="uppercase">Gebucht von</h2>
-            <ul>
-                <li><strong>Name: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--name', true); ?></li>
-                <li><strong>Telefon: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--phone', true); ?></li>
-                <li><strong>eMail: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--email', true); ?></li>
+<hr><br>
+
+<div class="ticket">
+    <section class="ticket__information">
+        <h2 class="uppercase">Gebucht von</h2>
+        <ul>
+            <li><strong>Name: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--name', true); ?></li>
+            <li><strong>Telefon: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--phone', true); ?></li>
+            <li><strong>eMail: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--email', true); ?></li>
+        </ul>
+    </section>
+
+    <section class="ticket__information ticket__card">
+        <h2>TICKETS</h2>
+        <p><span class="bold">Hiermit erhaltet ihr offiziell Zutritt zur dunklen Seite der Stadt Berlin!</span><br><br>
+            Aber nur, wenn ihr euch traut. Denn ihr werdet in eine Welt voller düsterer Legenden, gruseliger<br>
+            Geheimnisse aus der Vergangenheit und Furcht einflößender Begebenheiten entführt!
+        </p><br><br>
+
+        <?php foreach ($this->get_order_items() as $item) {?>
+        <article>
+            <h2 class="uppercase"><?php echo $item['name']; ?></h2><br>
+            <ol class="ticket__data">
+                <li><strong>TICKETNUMMER: </strong><?php echo $this->invoice_number(); ?></li>
+                <li><strong>DATUM: </strong><?php print_r($item['meta']);?></li>
+                <li><strong>PERSONEN: </strong><?php echo $item['quantity']; ?></li>
+            </ol>
+        </article><br><br>
+        <?php }?>
+    </section>
+    <section class="ticket__information">
+        <h2>TREFFPUNKT</h2>
+        <p class="blocktext">Der Treffpunkt befindet sich vor der Klosterruine U-Bhf Klosterstraße. Direkt hinter
+            dem Alexa.
+            <span class="bold">Klosterstraße 73a, 10179 Berlin</span></p>
+        <img class="ticket__meeting-point" src="<?php echo get_site_url(null, WPO_WCPDF()->settings->general_settings['template_path']) . '/img/Treffpunkt Gruseltour Berlin.png'; ?>" alt="Treffpunkt Gruseltour Berlin" />
+    </section>
+    <section class="ticket__information">
+        <h2>INFORMATIONEN</h2>
+        <article>
+            <ul class="ticket__tips">
+                <li>Die Tour dauert 90 Minuten</li>
+                <li>Wir legen während der Tour 1,5km zu Fuß zurück.</li>
+                <li>Wir laufen zum Teil über Kopfsteinpflaster.</li>
+                <li>Die Tour findet bei Wind und Wetter draußen statt. Wir finden aber immer wieder Plätze zum
+                    Unterstellen.</li>
+                <!-- <li>Parken</li>
+                <li>Toilette</li> -->
             </ul>
-        </section>
-
-        <section class="ticket__information ticket__card">
-            <h2>TICKETS</h2>
-            <p><span class="bold">Hiermit erhaltet ihr offiziell Zutritt zur dunklen Seite der Stadt Berlin!</span><br><br>
-                Aber nur, wenn ihr euch traut. Denn ihr werdet in eine Welt voller düsterer Legenden, gruseliger<br>
-                Geheimnisse aus der Vergangenheit und Furcht einflößender Begebenheiten entführt!
-            </p><br><br>
-
-            <?php foreach ($this->get_order_items() as $item) {?>
-            <article>
-                <h2 class="uppercase"><?php echo $item['name']; ?></h2><br>
-                <ol class="ticket__data">
-                    <li><strong>TICKETNUMMER: </strong><?php echo $this->invoice_number(); ?></li>
-                    <li><strong>DATUM: </strong><?php print_r($item['meta']);?></li>
-                    <li><strong>PERSONEN: </strong><?php echo $item['quantity']; ?></li>
-                </ol>
-            </article><br><br>
-            <?php }?>
-        </section>
-        <section class="ticket__information">
-            <h2>TREFFPUNKT</h2>
-            <p class="blocktext">Der Treffpunkt befindet sich vor der Klosterruine U-Bhf Klosterstraße. Direkt hinter
-                dem Alexa.
-                <span class="bold">Klosterstraße 73a, 10179 Berlin</span></p>
-            <img class="ticket__meeting-point" src="<?php echo get_site_url(null, WPO_WCPDF()->settings->general_settings['template_path']) . '/img/Treffpunkt Gruseltour Berlin.png'; ?>" alt="Treffpunkt Gruseltour Berlin" />
-        </section>
-        <section class="ticket__information">
-            <h2>INFORMATIONEN</h2>
-            <article>
-                <ul class="ticket__tips">
-                    <li>Die Tour dauert 90 Minuten</li>
-                    <li>Wir legen während der Tour 1,5km zu Fuß zurück.</li>
-                    <li>Wir laufen zum Teil über Kopfsteinpflaster.</li>
-                    <li>Die Tour findet bei Wind und Wetter draußen statt. Wir finden aber immer wieder Plätze zum
-                        Unterstellen.</li>
-                    <!-- <li>Parken</li>
-                    <li>Toilette</li> -->
-                </ul>
-            </article>
-        </section>
-        <section class="ticket__information">
-            <h2>KONTAKT</h2>
-            <p>
-                <ul class="ticket__contact">
-                    <li>Telefon, WhatsApp, Telegram, Threema, Signal<br />
-                    +49 176 569 718 64</li>
-                    <li>Mail: kontakt@gruseltour-berlin.de</li>
-                </ul>
-            </p>
-        </section>
-    </div>
+        </article>
+    </section>
+    <section class="ticket__information">
+        <h2>KONTAKT</h2>
+        <p>
+            <ul class="ticket__contact">
+                <li>Telefon, WhatsApp, Telegram, Threema, Signal<br />
+                +49 176 569 718 64</li>
+                <li>Mail: kontakt@gruseltour-berlin.de</li>
+            </ul>
+        </p>
+    </section>
+</div>
 
 <?php if ($this->get_footer()): ?>
 <div id="footer">
