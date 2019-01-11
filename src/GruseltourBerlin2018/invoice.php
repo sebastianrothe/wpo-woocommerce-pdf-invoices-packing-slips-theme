@@ -98,15 +98,15 @@ if ($this->has_header_logo()) {
 	</thead>
 	<tbody>
 		<?php $items = $this->get_order_items();if (sizeof($items) > 0): foreach ($items as $item_id => $item): ?>
-						<tr class="<?php echo apply_filters('wpo_wcpdf_item_row_class', $item_id, $this->type, $this->order, $item_id); ?>">
-							<td class="product">
-								<?php $description_label = __('Description', 'woocommerce-pdf-invoices-packing-slips'); // registering alternate label translation ?>
-								<span class="item-name"><?php echo $item['name']; ?></span>
-								<?php do_action('wpo_wcpdf_before_item_meta', $this->type, $item, $this->order);?>
-								<span class="item-meta"><?php echo $item['meta']; ?></span>
-								<dl class="meta">
-									<?php $description_label = __('SKU', 'woocommerce-pdf-invoices-packing-slips'); // registering alternate label translation ?>
-									<?php if (!empty($item['sku'])): ?><dt class="sku"><?php _e('SKU:', 'woocommerce-pdf-invoices-packing-slips');?></dt><dd class="sku"><?php echo $item['sku']; ?></dd><?php endif;?>
+																															<tr class="<?php echo apply_filters('wpo_wcpdf_item_row_class', $item_id, $this->type, $this->order, $item_id); ?>">
+																																<td class="product">
+																																	<?php $description_label = __('Description', 'woocommerce-pdf-invoices-packing-slips'); // registering alternate label translation ?>
+																																	<span class="item-name"><?php echo $item['name']; ?></span>
+																																	<?php do_action('wpo_wcpdf_before_item_meta', $this->type, $item, $this->order);?>
+																																	<span class="item-meta"><?php echo $item['meta']; ?></span>
+																																	<dl class="meta">
+																																		<?php $description_label = __('SKU', 'woocommerce-pdf-invoices-packing-slips'); // registering alternate label translation ?>
+																																		<?php if (!empty($item['sku'])): ?><dt class="sku"><?php _e('SKU:', 'woocommerce-pdf-invoices-packing-slips');?></dt><dd class="sku"><?php echo $item['sku']; ?></dd><?php endif;?>
 					<?php if (!empty($item['weight'])): ?><dt class="weight"><?php _e('Weight:', 'woocommerce-pdf-invoices-packing-slips');?></dt><dd class="weight"><?php echo $item['weight']; ?><?php echo get_option('woocommerce_weight_unit'); ?></dd><?php endif;?>
 				</dl>
 				<?php do_action('wpo_wcpdf_after_item_meta', $this->type, $item, $this->order);?>
@@ -169,10 +169,10 @@ if ($this->has_header_logo()) {
 
             <?php foreach ($this->get_order_items() as $item) {?>
             <article>
-                <h2 class="uppercase"><?php echo $item['name']; ?> - <?php echo $item['meta']; ?></h2><br>
+                <h2 class="uppercase"><?php echo $item['name']; ?></h2><br>
                 <ol class="ticket__data">
                     <li><strong>TICKETNUMMER: </strong><?php echo $this->invoice_number(); ?></li>
-                    <li><strong>DATUM: </strong><?php echo $item['meta']; ?></li>
+                    <li><strong>DATUM: </strong><?php print_r($item['meta']);?></li>
                     <li><strong>PERSONEN: </strong><?php echo $item['quantity']; ?></li>
                 </ol>
             </article><br><br>
@@ -183,7 +183,7 @@ if ($this->has_header_logo()) {
             <p class="blocktext">Der Treffpunkt befindet sich vor der Klosterruine U-Bhf Klosterstraße. Direkt hinter
                 dem Alexa.
                 <span class="bold">Klosterstraße 73a, 10179 Berlin</span></p>
-            <img class="ticket__meeting-point" src="./GruseltourBerlin2018/img/Treffpunkt Gruseltour Berlin.png" alt="Treffpunkt Gruseltour Berlin" />
+            <img class="ticket__meeting-point" src="<?php echo get_site_url(null, WPO_WCPDF()->settings->general_settings['template_path']) . '/img/Treffpunkt Gruseltour Berlin.png'; ?>" alt="Treffpunkt Gruseltour Berlin" />
         </section>
         <section class="ticket__information">
             <h2>INFORMATIONEN</h2>
