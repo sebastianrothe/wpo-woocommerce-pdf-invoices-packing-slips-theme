@@ -170,10 +170,6 @@
         padding: 0 0 0 10px;
     }
 
-    .ym-equalize {
-        overflow: hidden;
-    }
-
     .ym-equalize > [class*="ym-g"] {
         display: table-cell;
         float: none;
