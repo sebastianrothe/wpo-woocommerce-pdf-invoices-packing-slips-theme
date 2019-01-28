@@ -163,8 +163,8 @@ if ($this->has_header_logo()) {
     <section class="ticket__information ticket__card">
         <h2>TICKETS</h2>
         <p><span class="bold">Hiermit erhaltet ihr offiziell Zutritt zur dunklen Seite der Stadt Berlin!</span><br><br>
-            Aber nur, wenn ihr euch traut. Denn ihr werdet in eine Welt voller düsterer Legenden, gruseliger<br>
-            Geheimnisse aus der Vergangenheit und Furcht einflößender Begebenheiten entführt!
+            Aber nur, wenn ihr euch traut. Denn ihr werdet in eine Welt voller düsterer Legenden, gruseliger<br>
+            Geheimnisse aus der Vergangenheit und Furcht einflößender Begebenheiten entführt!
         </p><br><br>
 
         <?php foreach ($this->get_order_items() as $item_id => $item) {?>
