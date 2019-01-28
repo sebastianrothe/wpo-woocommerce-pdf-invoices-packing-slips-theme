@@ -4,8 +4,14 @@
     overflow: hidden;
 }
 
+@page  {
+    margin-bottom: 1cm;
+    margin-left: 1cm;
+    margin-right: 1cm;
+}
+
 .ticket {
-    display: flex;
+    display: block;
     flex-wrap: wrap;
 }
 
@@ -13,6 +19,7 @@
     flex: 1 0 auto;
     margin-right: 8px;
     width: 30%;
+    float: left;
 }
 
 .ticket__information h2 {
@@ -41,7 +48,7 @@
 }
 
 .footer__socialmedia {
-    display: flex;
+    display: block;
 }
 
 .footer__socialmedia li {
