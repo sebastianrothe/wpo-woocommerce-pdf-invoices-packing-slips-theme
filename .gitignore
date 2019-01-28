@@ -71,3 +71,8 @@ typings/
 
 # Serverless directories
 .serverless
+
+# project specific
+ideas/yaml*
+ideas/ydoc*
+ideas/bootstrap.zip
