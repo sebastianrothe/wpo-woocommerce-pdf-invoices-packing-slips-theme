@@ -1,3 +1,14 @@
+body {
+    font-size: 8pt;
+}
+
+@page  {
+    margin-top: 0.25cm;
+    margin-bottom: 0.25cm;
+    margin-left: 0.25cm;
+    margin-right: 0.25cm;
+}
+
 .paper--a4 {
     max-width: 21cm;
     max-height: 29cm;
@@ -5,47 +16,38 @@
 }
 
 .ticket {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.ticket__information {
-    flex: 1 0 auto;
-    margin-right: 8px;
-    width: 30%;
+    margin-bottom: 0.5rem;
 }
 
 .ticket__information h2 {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.25rem;
 }
 
-.ticket__card {
-    flex-basis: 63%;
+.ticket__customer li,
+.ticket__data li {
+    margin-bottom: 0.1rem;
 }
 
 .ticket__data {
-    font-size: 14pt;
+    font-size: 12pt;
 }
 
 .ticket__meeting-point {
-    max-width: 42%;
+    max-width: 100%;
 }
 
 .ticket__tips2 {
     list-style: disc;
-    margin-left: 1em;
+    margin-left: 1rem;
 }
 
 .ticket__tips li {
     text-align: justify;
 }
 
-.footer__socialmedia {
-    display: flex;
-}
-
 .footer__socialmedia li {
-    margin-right: 2em;
+    margin-right: 2rem;
+    float: left;
 }
 
 .uppercase {

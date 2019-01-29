@@ -71,3 +71,9 @@ typings/
 
 # Serverless directories
 .serverless
+
+# project specific
+ideas/yaml*
+ideas/ydoc*
+ideas/bootstrap2
+ideas/Adina Rechnung Ticket.pdf
