@@ -13,7 +13,7 @@ function add_custom_style_for_invoices($document_type, $document)
 {
     $output = '';
     
-    $files = ['yaml4-base.css', 'gruseltourberlin-invoice.css'];
+    $files = ['yaml4-core.css', 'gruseltourberlin-invoice.css'];
     foreach ($files as $stylesheet) {
         $file = $document->get_template_path() . '/css/' . $stylesheet;
         $css = apply_filters('wpo_wcpdf_template_styles_file', $file);
