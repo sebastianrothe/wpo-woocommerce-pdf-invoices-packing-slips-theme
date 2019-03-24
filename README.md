@@ -11,3 +11,7 @@ The design is based on HTML5 and Flexbox. The upper part is the invoice. The par
 ## Installation
 
 Upload all files into the current theme at **THEME_FOLDER/woocommerce/pdf/GruseltourBerlin2019**.
+
+## TODOs
+
+* Minify CSS
