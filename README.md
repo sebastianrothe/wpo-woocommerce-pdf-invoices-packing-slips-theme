@@ -1,4 +1,4 @@
-# PDF Invoice Template for the WooCoomerce Wordpress Plugin
+# PDF Invoice Template for the WPOvernight WooCoomerce PDF Invoices Plugin
 
 ## Idea
 
