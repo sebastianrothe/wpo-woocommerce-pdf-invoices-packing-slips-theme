@@ -150,7 +150,7 @@ if ($this->has_header_logo()) {
 	</tfoot>
 </table>
 
-<?php //do_action('wpo_wcpdf_after_order_details', $this->type, $this->order);?>
+<?php do_action('wpo_wcpdf_after_order_details', $this->type, $this->order);?>
 
 <hr></br>
 
@@ -190,10 +190,8 @@ if ($this->has_header_logo()) {
     <section class="ticket__information ym-g33 ym-gl">
         <div class="ym-gbox">
             <h2>TREFFPUNKT</h2>
-            <p class="blocktext">Der Treffpunkt befindet sich vor der Klosterruine U-Bhf Klosterstraße. Direkt hinter
-                dem Alexa.
+            <p class="blocktext">Der Treffpunkt befindet sich vor der Klosterruine am U-Bahnhof Klosterstraße. Direkt hinter dem Alexa.
                 <span class="bold">Klosterstraße 73a, 10179 Berlin</span></p>
-            <img class="ticket__meeting-point" src="<?php echo get_site_url(null, WPO_WCPDF()->settings->general_settings['template_path']) . '/img/Treffpunkt Gruseltour Berlin.png'; ?>" alt="Treffpunkt Gruseltour Berlin" />
         </div>
     </section>
 
