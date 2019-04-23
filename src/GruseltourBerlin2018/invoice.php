@@ -191,7 +191,9 @@ if ($this->has_header_logo()) {
         <div class="ym-gbox">
             <h2>TREFFPUNKT</h2>
             <p class="blocktext">Der Treffpunkt befindet sich vor der Klosterruine am U-Bahnhof Klosterstraße. Direkt hinter dem Alexa.
-                <span class="bold">Klosterstraße 73a, 10179 Berlin</span></p>
+                <br />
+                <span class="bold">Ruine der Franziskaner-Klosterkirche, Klosterstraße 73a, 10179 Berlin</span>
+            </p>
         </div>
     </section>
 
@@ -203,7 +205,7 @@ if ($this->has_header_logo()) {
                     <li>Die Tour dauert 90 Minuten.</li>
                     <li>Wir legen während der Tour 1,5km zu Fuß zurück.</li>
                     <li>Wir laufen zum Teil über Kopfsteinpflaster.</li>
-                    <li>Die Tour findet bei Wind und Wetter draußen statt. Wir finden aber immer wieder Plätze zum Unterstellen.</li>
+                    <li>Die Tour findet bei Wind und Wetter draußen statt. Wir finden aber ab und zu Plätze zum Unterstellen.</li>
                     <!-- <li>Parken</li>
                     <li>Toilette</li> -->
                 </ul>
