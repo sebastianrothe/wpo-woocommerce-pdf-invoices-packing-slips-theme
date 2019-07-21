@@ -39,6 +39,9 @@ if ($this->has_header_logo()) {
 			<?php do_action('wpo_wcpdf_before_billing_address', $this->type, $this->order);?>
 			<?php $this->billing_address();?>
 			<?php do_action('wpo_wcpdf_after_billing_address', $this->type, $this->order);?>
+            <?php if (isset($this->settings['display_zimmernummer'])) {?>
+			<div class="billing-zimmernummer"><?php $this->billing_zimmernummer();?></div>
+			<?php }?>
 			<?php if (isset($this->settings['display_email'])) {?>
 			<div class="billing-email"><?php $this->billing_email();?></div>
 			<?php }?>
@@ -159,18 +162,18 @@ if ($this->has_header_logo()) {
         <div class="ym-gbox">
             <h2 class="uppercase">Gebucht von</h2>
             <ul class="ticket__customer">
-                <li><strong>Name: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--name', true); ?></li>
-                <li><strong>Telefon: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--phone', true); ?></li>
-                <li><strong>eMail: </strong><?php echo get_post_meta($this->order->get_id(), 'customer--email', true); ?></li>
+                <li><strong>Name: </strong><?php $this->billing_first_name() ?></li>
+                <li><strong>Telefon: </strong><?php $this->billing_phone() ?></li>
+                <li><strong>eMail: </strong><?php $this->billing_email() ?></li>
             </ul>
         </div>
     </section>
 
     <section class="ticket__information ticket__card ym-g66 ym-gr">
         <div class="ym-gbox">
-            <h2>TICKETS</h2>
+            <h2>RESERVIERUNG - NOCH NICHT BEZAHLT</h2>
             <p><span class="bold">Hiermit erhaltet ihr offiziell Zutritt zur dunklen Seite der Stadt Berlin!</span><br><br>
-                Aber nur, wenn ihr euch traut. Denn ihr werdet in eine Welt voller düsterer Legenden, gruseliger Geheimnisse aus der Vergangenheit und Furcht einflößender Begebenheiten entführt!
+                Aber nur, wenn ihr euch traut. Denn ihr werdet in eine Welt voller düsterer Legenden, gruseliger Geheimnisse aus der Vergangenheit und Furcht einflößender Begebenheiten entführt! Bezahlt wird am Start der Tour in bar beim Guide.
             </p><br>
 
             <?php foreach ($this->get_order_items() as $item_id => $item) {?>
